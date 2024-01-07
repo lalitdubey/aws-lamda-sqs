@@ -1,0 +1,18 @@
+org: lalitdubeyltimindtree
+app: aws-node-http-api-project
+service: aws-sqs-challenge
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  processQueue:
+    handler: handler.processQueue
+    events:
+      - http:
+          path: /
+          method: get
+
